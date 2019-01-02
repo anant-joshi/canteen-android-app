@@ -21,8 +21,8 @@ android:
     - extra-android-support
     - extra-google-m2repository
     - extra-android-m2repository # for design library
-    - sys-img-armeabi-v7a-$ANDROID_TAG-$ANDROID_API_LEVEL
-    - sys-img-armeabi-v7a-$ANDROID_TAG-$EMULATOR_API_LEVEL
+    - sys-img-armeabi-v7a-android-$ANDROID_API_LEVEL
+    - sys-img-armeabi-v7a-android-$EMULATOR_API_LEVEL
 
   licenses:
     - android-sdk-preview-license-.+
