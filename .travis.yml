@@ -52,7 +52,7 @@ before_install:
 
 script:
   - android list targets
-  - $ANDROID_HOMEtools/bin/avdmanager create --force -n test -t android-$EMULATOR_API_LEVEL --abi armeabi-v7a --tag $ANDROID_TAG
+  - avdmanager create --force -n test -t android-$EMULATOR_API_LEVEL --abi armeabi-v7a --tag $ANDROID_TAG
   - emulator -avd test -no-skin -no-window &
   - mkdir -p build/reports
   - android-wait-for-emulator
