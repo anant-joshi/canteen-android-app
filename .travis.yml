@@ -21,8 +21,8 @@ android:
     - extra-android-support
     - extra-google-m2repository
     - extra-android-m2repository # for design library
-    - sys-img-armeabi-v7a-android-$ANDROID_API_LEVEL
-    - sys-img-armeabi-v7a-android-$EMULATOR_API_LEVEL
+    - sys-img-x86-android-$ANDROID_API_LEVEL
+    - sys-img-x86-android-$EMULATOR_API_LEVEL
 
   licenses:
     - android-sdk-preview-license-.+
@@ -53,7 +53,7 @@ before_install:
 
 script:
   - android list targets
-  - echo no | android create avd --force -n test -t android-$EMULATOR_API_LEVEL --abi armeabi-v7a --tag $ANDROID_TAG
+  - echo no | android create avd --force -n test -t android-$EMULATOR_API_LEVEL --tag $ANDROID_TAG
   - emulator -avd test -no-skin -no-window &
   - mkdir -p build/reports
   - android-wait-for-emulator
