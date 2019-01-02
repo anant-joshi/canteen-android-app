@@ -53,7 +53,7 @@ before_install:
 
 script:
   - android list targets
-  - echo no | android create avd --force -n test -t android-$EMULATOR_API_LEVEL --tag $ANDROID_TAG
+  - echo no | android create avd --force -n test -t android-$EMULATOR_API_LEVEL --abi x86
   - emulator -avd test -no-skin -no-window &
   - mkdir -p build/reports
   - android-wait-for-emulator
