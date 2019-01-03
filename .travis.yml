@@ -4,8 +4,8 @@ jdk: oraclejdk8
 
 env:
   global:
-    - ANDROID_API_LEVEL=27
-    - EMULATOR_API_LEVEL=27
+    - ANDROID_API_LEVEL=28
+    - EMULATOR_API_LEVEL=25
     - ANDROID_BUILD_TOOLS=28.0.3
     - ADB_INSTALL_TIMEOUT=20 # minutes
     - ANDROID_TAG=google_apis
@@ -21,8 +21,8 @@ android:
     - extra-android-support
     - extra-google-m2repository
     - extra-android-m2repository # for design library
-    - sys-img-x86-android-$ANDROID_API_LEVEL
-    - sys-img-x86-android-$EMULATOR_API_LEVEL
+    - sys-img-armeabi-v7a-android-google_apis-$ANDROID_API_LEVEL
+    - sys-img-armeabi-v7a-android-google_apis-$EMULATOR_API_LEVEL
 
   licenses:
     - android-sdk-preview-license-.+
@@ -57,7 +57,7 @@ before_install:
 
 script:
   - android list targets
-  - echo no | android create avd --force -n test -t android-$EMULATOR_API_LEVEL --abi x86
+  - echo no | android create avd --force -n test -t android-$EMULATOR_API_LEVEL --abi armeabi-v7a --tag $ANDROID_TAG
   - ls $ANDROID_SDK_ROOT/system-images/
   - emulator -avd test -no-window &
   - mkdir -p build/reports
