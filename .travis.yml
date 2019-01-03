@@ -44,6 +44,7 @@ before_install:
   #- unzip android-ndk-r18b-linux-x86_64.zip -d $HOME > /dev/null
   #- export ANDROID_NDK_HOME=$HOME/android-ndk-r18b
   #- export PATH=$PATH:$ANDROID_NDK_HOME
+  - exmport PATH=$PATH:$ANDROID_SDK_ROOT
   - mkdir "$ANDROID_HOME/licenses" || true
   - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
   - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
@@ -54,7 +55,7 @@ before_install:
 script:
   - android list targets
   - echo no | android create avd --force -n test -t android-$EMULATOR_API_LEVEL --abi x86
-  - emulator -avd test -no-skin -no-window &
+  - emulator -avd test -no-window &
   - mkdir -p build/reports
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
